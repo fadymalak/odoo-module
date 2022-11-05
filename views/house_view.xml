@@ -1,0 +1,38 @@
+<odoo>
+  <record id="view_form_house" model="ir.ui.view">
+    <field name="name">house Form</field>
+    <field name="model">library.house</field>
+    <field name="groups_id" eval="[(6, 0, [ref('library_group_manager') ])]" />
+    <field name="arch" type="xml">
+    
+
+    <form>
+
+      <sheet>
+        <group name="group_top">
+          <group name="group_left">
+        <field name="name" read_only="1" />
+        <field name="house_owner" />
+        <field name="room_ids" />
+          </group>
+        </group>
+      </sheet>
+    </form>
+
+    </field>
+  </record>
+
+<record id="view_tree_house" model="ir.ui.view">
+  <field name="name">house List</field>
+  <field name="model">library.house</field>
+  <field name="arch" type="xml">
+    <tree>
+      <field name="name"/>
+      <field name="house_owner" />
+      <field name="room_ids" />
+      
+    </tree>
+  </field>
+</record>
+
+</odoo>

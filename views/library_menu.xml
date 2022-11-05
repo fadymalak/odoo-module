@@ -1,0 +1,52 @@
+<odoo>
+
+
+  <menuitem id="menu_library" name="Library app menu" />
+
+    <record id="action_library_wall" model="ir.actions.act_window">
+    <field name="name">Library wall action</field>
+    <field name="res_model">library.wall</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+      <record id="action_library_room" model="ir.actions.act_window">
+    <field name="name">Library room action</field>
+    <field name="res_model">library.room</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+      <record id="action_library_house" model="ir.actions.act_window">
+    <field name="name">Library house action</field>
+    <field name="res_model">library.house</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+        <record id="action_library_color" model="ir.actions.act_window">
+    <field name="name">Library color action</field>
+    <field name="res_model">library.color</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+    <menuitem id="menu_library_wall" sequence="2"
+    name="wall Menu"
+    parent="menu_library"
+    action="action_library_wall"
+  />
+
+    <menuitem id="menu_library_room"
+    name="room Menu "
+    parent="menu_library"
+    action="action_library_room"
+    groups="library_group_manager"
+  />
+    <menuitem id="menu_library_house"
+    name="house Menu "
+    parent="menu_library"
+    action="action_library_house"
+    groups="library_group_manager"
+  />
+      <menuitem id="menu_library_color"
+    name="color Menu "
+    parent="menu_library"
+    action="action_library_color"
+    groups="library_group_manager"
+  />
+
+</odoo>

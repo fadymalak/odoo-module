@@ -1,0 +1,65 @@
+<odoo>
+  <record id="view_form_wall" model="ir.ui.view">
+    <field name="name">wall Form</field>
+    <field name="model">library.wall</field>
+    <field name="arch" type="xml">
+    
+    
+    <form>
+      <sheet>
+        <group name="group_top">
+          <group name="group_left">
+
+
+        <field name="colors_id" />
+          </group>
+        </group>
+      </sheet>
+    </form>
+
+    </field>
+  </record>
+
+
+  <record id="view_form_wall_r" model="ir.ui.view">
+    <field name="name">wall Form</field>
+    <field name="model">library.wall</field>
+    <field name="inherit_id" ref="view_form_wall" />
+    <field name="groups_id" eval="[(6, 0, [ref('library_group_manager') ])]" />
+    <field name="arch" type="xml">
+
+
+        <xpath expr="//field[@name='colors_id']" position="before">
+        <field name="name" />
+        <field name="painter_id" />
+          <field name="length"  />
+        </xpath>
+
+        <xpath expr="//field[@name='colors_id']" position="after">
+        <field name="width" />
+        
+        <field name="total_cost" />
+        </xpath>
+
+
+    </field>
+  </record>
+
+<record id="view_tree_wall" model="ir.ui.view">
+  <field name="name">wall List</field>
+  <field name="model">library.wall</field>
+    <field name="groups_id" eval="[(6, 0, [ref('library_group_manager') ])]" />
+  <field name="arch" type="xml">
+    <tree>
+      <field name="name"/>
+      <field name="length" />  
+      <field name="width" />
+      <field name="colors_id" />
+      <field name="painter_id" /> 
+      <field name="total_cost" />
+    </tree>
+  </field>
+</record>
+
+
+</odoo>

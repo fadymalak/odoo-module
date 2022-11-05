@@ -1,0 +1,67 @@
+<odoo>
+
+  <data>
+  <!-- Library User Group -->
+  <record id="library_group_user" model="res.groups">
+    <field name="name">Enginner</field>
+    <field name="category_id"
+           ref="base.module_category_services_library"/>
+    <field name="implied_ids"
+           eval="[(4, ref('base.group_user'))]"/>
+  </record>
+
+  <record id="library_group_painter" model="res.groups">
+    <field name="name">Painter</field>
+    <field name="category_id"
+           ref="base.module_category_services_library"/>
+    <field name="implied_ids"
+           eval="[(4, ref('library_group_user'))]"/>
+  </record>
+  <!-- Library Manager Group -->
+  <record id="library_group_manager" model="res.groups">
+    <field name="name">Manager</field>
+    <field name="category_id"
+           ref="base.module_category_services_library"/>
+    <field name="implied_ids"
+           eval="[(4, ref('library_group_user'))]"/>
+    <field name="users"
+           eval="[(4, ref('base.user_root')),
+                  (4, ref('base.user_admin'))]"/>
+  </record>
+
+  </data>
+
+  <data noupdate="1">
+
+    <record id="house_user_rule" model="ir.rule">
+      <field name="name">Library house User Access</field>
+      <field name="model_id" ref="model_library_house"/>
+
+      <field name="groups" eval="[(4, ref('library_group_user'))]"/>
+    </record>
+
+    <record id="room_user_rule" model="ir.rule">
+      <field name="name">Library room User Access</field>
+      <field name="model_id" ref="model_library_room"/>
+
+      <field name="groups" eval="[(4, ref('library_group_user'))]"/>
+    </record>
+
+    <record id="color_user_rule" model="ir.rule">
+      <field name="name">Library room User Access</field>
+      <field name="model_id" ref="model_library_color"/>
+
+      <field name="groups" eval="[(4, ref('library_group_user'))]"/>
+    </record>
+
+    <record id="painter_user_rule" model="ir.rule">
+      <field name="name">Library Book User Access</field>
+      <field name="model_id" ref="model_library_wall"/>
+      <field name="domain_force">
+        [('painter_id', '=', user.id)]
+      </field>
+      <field name="groups" eval="[(4, ref('library_group_user'))]"/>
+    </record>
+  </data>
+
+</odoo>

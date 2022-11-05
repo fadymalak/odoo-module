@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wall_painter,WallPainter,model_library_wall,library_group_user,1,1,0,0
+access_wall_manager,WallManager,model_library_wall,library_group_manager,1,1,1,1
+access_room_painter,RoomPainter,model_library_room,library_group_painter,1,0,0,0
+access_room_manager,RoomManager,model_library_room,library_group_manager,1,1,1,1
+access_house_painter,HousePainter,model_library_house,library_group_user,1,0,0,0
+access_house_manager,HouseManager,model_library_house,library_group_manager,1,1,1,1
+access_color_painter,ColorPainter,model_library_color,library_group_user,1,0,0,0
+access_color_manager,ColorManager,model_library_color,library_group_manager,1,1,1,1
